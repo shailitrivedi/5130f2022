@@ -1,0 +1,194 @@
+<!-- # NOTE : PLEASE HOVER ON THE SCREEN WHILE LOADING THE HTML PAGE ON CHROME
+# NAME : SHAILI TARAK TRIVEDI
+# EMAIL_ID : Shaili_Trivedi@student.uml.edu
+# STUDENT_ID : 02008856
+# ASSIGNMENT_2 : YOUR FIRST WEB PAGE / APP -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport">
+	<title>Shaili Trivedi</title>
+</head>
+<style type="text/css">
+	body
+	{
+		background-color: gainsboro;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+	}
+
+	.image-container
+	{
+		width: 100%;
+		height: 100%;
+		/*background: url(UML_Logo.png);*/
+		background-repeat: no-repeat;
+		background-size: 200px 175px;
+		margin-left: 50px;
+		margin-top: 20px;
+		background-position: left;
+		position: center;
+		overflow: hidden;
+	}
+	.image-container :: before
+	{
+		content: "";
+		position: center;
+		width: 100%;
+		height: 100%;
+		background-color: rgb(51, 43, 48 , 0.85);
+
+	}
+
+	.image-container .img
+	{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+
+	}
+
+	.image-container .img span
+	{
+		width: 25%;
+		height: 100%;
+		background: url(IMG_0056.JPG);
+		transition: 0.7s ease-in-out;
+		align-items: center;
+		background-size: cover;
+	}
+	.image-container .img span:nth-child(1)
+	{
+		background-position: 0%;
+		transition-delay: 0;
+	}
+	.image-container .img span:nth-child(2)
+	{
+		background-position: 25%;
+		transition-delay: 0.1s;
+	}
+	.image-container .img span:nth-child(3)
+	{
+		background-position: 50%;
+		transition-delay: 0.2s;
+	}
+	.image-container .img span:nth-child(4)
+	{
+		background-position: 75%;
+		transition-delay: 0.3s;
+	}
+	.image-container .img span:nth-child(5)
+	{
+		background-position: 100%;
+		transition-delay: 0.4s;
+	}
+	.image-container:hover .img > span
+	{
+		transform: translateY(100%);
+	}
+	.image-container:hover .content-wrapper
+	{
+		transform: translateX(0%);
+		transition: 0.7s ease-in-out;
+		transition-delay: 0.1s;
+	}
+	.content-wrapper
+	{
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		align-items: center;
+		flex-direction: column;
+		color: white;
+		padding: 20px 20px;
+		width: 100%;
+		height: 100%;
+		transform: translateX(100%);
+	}
+	h1
+	{
+		font-family: 'Birthstone Bounce', cursive;
+		font-size: 70px;
+		letter-spacing: 5px;
+		margin-top: 40px;
+		color: black;
+	}
+	p
+	{
+		font-family: 'Roboto',sans-serif;
+		font-family: 20px;
+		letter-spacing: 1px;
+		margin-top: -35px;
+		line-height: 25px; 
+		color: black;
+	}
+	table
+	{
+		width: 65%;
+		border-collapse: collapse;
+		border-color: steelblue;
+		color: black;
+		margin-top: 100px;
+	}
+	table,th
+	{
+		border:1px solid;
+		background-color: silver;
+		font-size: 25px;
+
+	}
+	td
+	{
+		border:1px solid;
+		background-color: silver;
+		font-style: italic;		
+	}
+	.head1 th:hover
+	{
+		background-color: darkgray;
+	}
+</style>
+<body>
+	<div class="image-container">
+		<div class="img">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			
+		</div>
+		<div class="content-wrapper">
+			<div>
+				<h1>Shaili Trivedi</h1>
+				<p>Master's in Computer Science</p>
+			</div>
+
+			<table>
+			    <tr>
+			      <th class="head1">Home</th>
+			      <th class="head2">Resume</th>
+			      <th class="head3">Cover Letter</th>
+			      <th class="head4">Contact</th>
+			    </tr>
+			    <tr>
+			    	<td></td>
+    				<td><a href="https://www.linkedin.com/in/shaili-trivedi-69a090183/" target="_blank">click me</a></td>
+    				<td><a href='https://github.com/shailitrivedi' target="_blank">click me</a></td>
+    				<td>(xxx)xxx-xxxx</td>
+  				</tr>
+			</table>
+		</div>
+	</div>
+</body>
