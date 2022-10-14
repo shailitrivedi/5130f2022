@@ -1,1 +1,6 @@
+Name : Shaili Trivedi
+Student ID : 02008856
+Email ID : Shaili_Trivedi@student.uml.edu
+GitHub Id : shailitrivedi
+GitHub Link : https://github.com/shailitrivedi/5130f2022/tree/main/Project_Proposal
 
