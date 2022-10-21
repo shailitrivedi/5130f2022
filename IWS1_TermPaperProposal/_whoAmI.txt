@@ -1,4 +1,5 @@
 Name : Shaili Trivedi
 Email : Shaili_Trivedi@student.uml.edu
 Student_ID : 02008856
-GitHub Link : https://github.com/shailitrivedi/5130f2022
+GitHub Id : shailitrivedi
+GitHub Link : https://github.com/shailitrivedi/5130f2022/tree/main/IWS1_TermPaperProposal
