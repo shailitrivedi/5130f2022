@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Submit Form</title>
+	<style type="text/css">
+	body
+	{
+	width: 100%;
+	height: 100vh;
+	background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(background.jpg);
+	
+	background-repeat: no-repeat;
+	overflow-y: scroll;
+	background-position: center;
+	}
+	.navbar
+	{
+	width: 80%;
+	margin: 10px;
+	text-align: right;
+	padding: 20px 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	}	
+	.navbar ul li a{
+
+	text-decoration: none;
+	color: #ffff;
+	text-transform: uppercase;
+
+}
+.navbar ul li{
+	list-style: none;
+	display: inline-block;
+	margin: 0 20px;
+	position: relative;
+}
+
+.navbar ul li::after
+{
+	content: '';
+	width: 0;
+	height: 3px;
+	background: #009688;
+	position: absolute;
+	left: 0;
+	bottom: -5px;
+	transition: 0.5s;
+}
+.navbar ul li:hover::after
+{
+	width: 100%;
+}
+.sform
+{
+color: whitesmoke;
+text-align: left;
+}
+.personal_information
+{
+	margin-left: auto;
+	margin-right: auto;
+	table-layout: center;
+}
+.more_facts{
+	margin-left: auto;
+	margin-right: auto;
+	table-layout: center;
+}
+.personal_information th{
+	font-family: sans-serif;
+	font-size: 20px;
+	text-align: left;
+	font-style: italic;
+}
+.more_facts th
+{
+	font-family: sans-serif;
+	font-size: 20px;
+	text-align: left;
+	font-style: italic;
+}
+input{
+	height: 20px;
+	width: 200px;
+}
+.head
+{
+	text-align: center;
+	font-size: 60px;
+}
+.btnSubmit
+{
+	height: 50px;
+	width: 150px;
+	border-radius: 10px;
+	opacity: 0.7;
+	font-size: 26px;
+	align-items: center;
+}
+
+	</style>
+</head>
+
+<body>
+	<div class="navbar">
+ 			<ul>
+ 				<li><a href="index.html">Home</a></li>
+ 				<li><a href="form.html">Create Profile</a></li>
+ 				<li><a href="#">View Profile</a></li>
+                <li><a href="investment.html">Investment Portfolio</a></li>
+                <li><a href="#">Upload data</a></li>
+ 				<li><a href="Shaili_Trivedi_Resume.pdf" target="_blank">My Profile</a></li>
+
+ 			</ul>
+ 		</div>
+ 		<div class="sform">
+ 			
+ 			<form>
+ 				<table class="personal_information">
+ 					<th><u>Personal Information</u></th>
+ 					<tr>
+ 						<td>First Name : </td>
+ 						<td>
+ 							<input type="text" name="fname" value="fname" placeholder="Enter your first name" id="fname">
+ 						</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Last Name : </td>
+ 						<td>
+ 							<input type="text" name="lname" value="lname" placeholder="Enter your last name" id="lname">
+ 						</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Email Address : </td>
+ 						<td>
+ 							<input type="Email" name="personal_email" value="personal_email"placeholder="Personal Email_ID" id="personal_email">
+ 						</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Contact Number : </td>
+ 						<td>
+ 							<input type="tel" name="con_num" value="con_num"placeholder="Enter 10 digit phone number" id="con_num">
+ 						</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Gender : </td>
+ 						<td>
+ 							<select name="gender" id="gender">
+ 								<option value="Male">Male</option>
+ 								<option value="Female">Female</option>
+ 								<option value="others">other</option>
+ 								
+ 							</select>
+ 						</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Date of Birth : </td>
+ 						<td>
+ 							<input type="Date" name="dob" value="dob" id="dob">
+ 						</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Birth Place : </td>
+ 						<td>
+ 							<input type="text" name="birthplace" value="birthplace" id="birthplace">
+ 						</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Current Location : </td>
+ 						<td>
+ 							<input type="text" name="curr_location" value="curr_location" id="curr_location">
+ 						</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Upload your picture : </td>
+ 						<td>
+ 							<input type="file" name="pic" value="pic" id="pic">
+ 						</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Upload your CV : </td>
+ 						<td>
+ 							<input type="file" name="cv" value="cv" id="cv">
+ 						</td>
+ 					</tr>
+ 				</table>
+ 				<br>
+ 				<br>
+ 				<table class="more_facts"> 
+ 					<th><u>More Facts</u></th>
+ 					<tr>
+ 						<td>Siblings Name : </td>
+ 						<td>
+ 							<input type="text" name="sname" value="sname" id="sname">
+ 						</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Dream Place : </td>
+ 						<td>
+ 							<input type="text" name="dreamplace" value="dreamplace" id="dreamplace">
+ 						</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Enter fun fact : </td>
+ 						<td>
+ 							<input type="text" name="fun1" value="fun1" id="fun1">
+ 						</td>
+ 					</tr>
+ 					<tr>
+ 						<td>Hobbies : </td>
+ 						<td>
+ 							<input type="checkbox" name="paint" value="paint"><label for="paint">Paint</label><br>
+
+ 							<input type="checkbox" name="music" value="music"><label for="music">Music</label><br>
+
+ 							<input type="checkbox" name="travel" value="travel"><label for="travel">Travel</label><br>
+
+
+ 						</td>
+ 					</tr>
+ 					<tr>
+ 						<br>
+ 						<td></td>
+ 						<td></td>
+ 					</tr>
+ 				</table>
+ 				
+ 			</form>
+ 			<button id="btnSubmit" class="btnSubmit">Submit</button>
+ 		</div>
+
+</body>
+<script type="text/javascript">
+	const btn = document.getElementById("btnSubmit");
+
+    btn.addEventListener("click", (e) => {
+        let fname= document.getElementById("fname").value;
+        let lname= document.getElementById("lname").value;
+        let personal_email= document.getElementById("personal_email").value;
+        let con_num= document.getElementById("con_num").value;
+        let dob= document.getElementById("dob").value;
+        let birthplace= document.getElementById("birthplace").value;
+        let curr_location= document.getElementById("curr_location").value;
+        let dreamplace= document.getElementById("dreamplace").value;
+		let fun1= document.getElementById("fun1").value;	
+        let sname= document.getElementById("sname").value;
+
+        var url = "http://shailitrivedi.pythonanywhere.com/ad"
+    fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(
+        { "fname": fname,
+            "lname":lname,
+            "personal_email":personal_email,
+            "con_num":con_num,
+            "dob":dob,
+            "birthplace":birthplace,
+            "curr_location":curr_location,
+            "sname":sname,
+            "dreamplace":dreamplace,
+            "fun1":fun1
+
+         })
+    }).then(re => console.log(re.json()))
+    })
+</script>
+
+</html>

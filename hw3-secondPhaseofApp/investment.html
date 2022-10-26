@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Investment Page</title>
+	<style type="text/css">
+		body
+	{
+	width: 100%;
+	height: 100vh;
+	background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(background.jpg);
+	
+	background-repeat: no-repeat;
+	overflow-y: scroll;
+	background-position: center;
+	}
+	.navbar
+	{
+	width: 80%;
+	margin: 10px;
+	text-align: right;
+	padding: 20px 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	}	
+	.navbar ul li a{
+
+	text-decoration: none;
+	color: #ffff;
+	text-transform: uppercase;
+
+}
+.navbar ul li{
+	list-style: none;
+	display: inline-block;
+	margin: 0 20px;
+	position: relative;
+}
+
+.navbar ul li::after
+{
+	content: '';
+	width: 0;
+	height: 3px;
+	background: #009688;
+	position: absolute;
+	left: 0;
+	bottom: -5px;
+	transition: 0.5s;
+}
+.navbar ul li:hover::after
+{
+	width: 100%;
+}
+.minv,.finv{
+	color: whitesmoke;
+	text-align: left;
+	table-layout: center;
+}
+
+	</style>
+</head>
+
+<body>
+	<div class="navbar">
+ 			<ul>
+ 				<li><a href="index.html">Home</a></li>
+ 				<li><a href="form.html">Create Profile</a></li>
+ 				<li><a href="#">View Profile</a></li>
+                <li><a href="investment.html">Investment Portfolio</a></li>
+                <li><a href="#">Upload data</a></li>
+ 				<li><a href="Shaili_Trivedi_Resume.pdf" target="_blank">My Profile</a></li>
+ 			</ul>
+ 		</div>
+ 	<div>
+ 		<table class="minv">
+ 			<th><u>My Investment</u></th>
+ 			<tr>
+ 				<td>Property :</td>
+ 				<td>3bhk in switzerland, Multi level Bunglow , Beach Hpouse</td>
+ 			</tr>
+ 			<tr>
+ 				<td>Stock Market : </td>
+ 				<td>$2500 for one year</td>
+ 			</tr>
+ 			<tr>
+ 				<td>Crptocurrecy : </td>
+ 				<td>In Future</td>
+ 			</tr>
+
+ 		</table>
+ 		<h1>Why to invest in my website?</h1>
+ 		
+ 		<table class="finv">
+ 			<th><u>Family's Investment<u></th>
+
+ 			<tr>
+ 				<td>Property :</td>
+ 				<td>3bhk in switzerland, Multi level Bunglow , Beach Hpouse</td>
+ 			</tr>
+ 			<tr>
+ 				<td>Stock Market : </td>
+ 				<td>$2500 for one year</td>
+ 			</tr>
+ 			<tr>
+ 				<td>Crptocurrecy : </td>
+ 				<td>In Future</td>
+ 			</tr>
+ 		</table>
+ 	</div>
+
+</body>
+</html>
