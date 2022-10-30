@@ -119,7 +119,7 @@ input{
  		</div>
  		<div class="sform">
  			
- 			<form>
+ 			<form id="ssForm">
  				<table class="personal_information">
  					<th><u>Personal Information</u></th>
  					<tr>
@@ -150,7 +150,7 @@ input{
  						<td>Gender : </td>
  						<td>
  							<select name="gender" id="gender">
- 								<option value="Male">Male</option>
+ 								<option value="Male" selected>Male</option>
  								<option value="Female">Female</option>
  								<option value="others">other</option>
  								
@@ -210,7 +210,7 @@ input{
  							<input type="text" name="fun1" value="fun1" id="fun1">
  						</td>
  					</tr>
- 					<tr>
+ 				<!--	<tr>
  						<td>Hobbies : </td>
  						<td>
  							<input type="checkbox" name="paint" value="paint"><label for="paint">Paint</label><br>
@@ -226,7 +226,7 @@ input{
  						<br>
  						<td></td>
  						<td></td>
- 					</tr>
+ 					</tr> -->
  				</table>
  				
  			</form>
@@ -234,43 +234,53 @@ input{
  		</div>
 
 </body>
-<script type="text/javascript">
+<script>
 	const btn = document.getElementById("btnSubmit");
+	btn.addEventListener("click", (e) => {
+	e.preventDefault();
+	let fname= document.getElementById("fname").value;
+    let lname= document.getElementById("lname").value;
+    let personal_email= document.getElementById("personal_email").value;
+    let con_num= document.getElementById("con_num").value;
+    let gender = document.getElementById("gender").value;
+    let dob= document.getElementById("dob").value;
+    let birthplace= document.getElementById("birthplace").value;
+    let curr_location= document.getElementById("curr_location").value;
+    let dreamplace= document.getElementById("dreamplace").value;
+	let fun1= document.getElementById("fun1").value;	
+    let sname= document.getElementById("sname").value;
 
-    btn.addEventListener("click", (e) => {
-        let fname= document.getElementById("fname").value;
-        let lname= document.getElementById("lname").value;
-        let personal_email= document.getElementById("personal_email").value;
-        let con_num= document.getElementById("con_num").value;
-        let dob= document.getElementById("dob").value;
-        let birthplace= document.getElementById("birthplace").value;
-        let curr_location= document.getElementById("curr_location").value;
-        let dreamplace= document.getElementById("dreamplace").value;
-		let fun1= document.getElementById("fun1").value;	
-        let sname= document.getElementById("sname").value;
+	console.log(fname,lname, personal_email, con_num, gender, dob, birthplace);
+	console.log(curr_location, dreamplace, fun1, sname);
+	var url = "http://shailitrivedi.pythonanywhere.com/ad"
 
-        var url = "http://shailitrivedi.pythonanywhere.com/ad"
-    fetch(url, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(
-        { "fname": fname,
-            "lname":lname,
-            "personal_email":personal_email,
-            "con_num":con_num,
-            "dob":dob,
-            "birthplace":birthplace,
-            "curr_location":curr_location,
-            "sname":sname,
-            "dreamplace":dreamplace,
-            "fun1":fun1
+	fetch(url,{
+	method: 'POST',
+	mode: 'cors',
+	headers: {
+		"Content-Type": 'application/json'
+	},
+	body: JSON.stringify({
+		fname: fname,
+        lname:lname,
+        personal_email:personal_email,
+        con_num:con_num,
+        gender:gender,
+        dob:dob,
+        birthplace:birthplace,
+        curr_location:curr_location,
+        sname:sname,
+        dreamplace:dreamplace,
+        fun1:fun1
+		})
+	}).then(res => res.json())
+		.then((data)=>{
+			if(data.status){
+				alert(data.message)
+			}
+	})
+	.catch(err=>console.log(err))
 
-         })
-    }).then(re => console.log(re.json()))
-    })
+	})
 </script>
-
 </html>
