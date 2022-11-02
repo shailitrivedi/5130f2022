@@ -10,4 +10,6 @@ My_GitHub Link : https://github.com/shailitrivedi/5130f2022/edit/main/Weekly_Pro
 Work by Dharti : Individual HTML page of User,Admin, Department in HTML,CSS and JS
 Dharti Github Link : https://github.com/dhartipatel3109/COMP5130f2022/new/main/Weekly_Project_Progress_Report_1
 
+
+Run : index.html
 Note : I have attached screenshot of just my work
