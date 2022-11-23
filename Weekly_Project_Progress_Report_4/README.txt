@@ -11,7 +11,7 @@ of the user.
 Work by Shaili : Created Department Side pages like DeptDashboard, DeptComplaintList, DeptResolveComplaints and DeptResolvedComplaintList for the front end 
 of the system and also made required changes to the week_1,week_2 and week_3 developed pages. Additionally learned Spring Framework, Java and SQL for                    
 the Backend of the system and Bootstrap for the front-end.
-My_GitHub Link : https://github.com/shailitrivedi/5130f2022/new/main/Weekly_Project_Progress_Report_4
+My_GitHub Link : https://github.com/shailitrivedi/5130f2022/tree/main/Weekly_Project_Progress_Report_4
 
 
 
