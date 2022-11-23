@@ -13,7 +13,7 @@ of the system and also made required changes to the week_1,week_2 and week_3 dev
 the Backend of the system and Bootstrap for the front-end.
 My_GitHub Link : https://github.com/shailitrivedi/5130f2022/tree/main/Weekly_Project_Progress_Report_4
 
-
+Note :  Screenshots are attached for all of the working module of User, Admin and Department Modules.
 
 Run : week_4/index.html,
       week_4/user/dashboard.html,
