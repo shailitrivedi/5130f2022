@@ -211,6 +211,10 @@
                                         
                                         <table class="table table-bordered" width="80%" cellspacing="0">
                                             <tr>
+                                                <th>Department Name</th>
+                                                <td><textarea rows="1" cols="40" name="deptName" class="form-control" placeholder="Enter Department Name" required></textarea></td>
+                                            </tr>
+                                            <tr>
                                                 <th>Complaint Type</th>
                                                 <td>
                                                     <select class="form-control" id="Complaint Type" name="complaintType" required>
@@ -219,62 +223,36 @@
                                                         <option value="Query" >Query</option>
                                                     </select>
                                                 </td>
-                                                <th>Complaint Category</th>
-                                                <td>
-                                                    <select class="form-control" id="Complaint Category" name="complaintCategory" required>
-                                                        <option value="">Select Category</option>
-                                                        <option value="Government">Government</option>
-
-                                                        <option value="Non-Government">Non-Government</option>
-                                                    </select>
-                                                </td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <th>Complaint Details</th>
+                                                <td><textarea rows="3" cols="40" name="complaintDetails" class="form-control" placeholder="Please Enter Complaint Details" required></textarea></td>
                                             </tr>
 
+                                            
+                                            
                                             <tr>
-                                                <th>Sub-Catogory</th>
-                                                <script type="text/javascript" src="../Data/SubCategory.js"></script>
-                                                <td>
-                                                    <select name="subCategory" class="form-control" id="Sub_Category" required></select>
-                                                </td>
-                                                <th>Authority Department/Company</th>
-
-                                                <td>
-                                                    <script type="text/javascript" src="Data/SubCategory.js"></script>
-                                                    <select name="AuthDept" class="form-control" id="AuthDept" required></select>
-                                                </td>
-                                            </tr>
-                                            <script language="javascript">
-                                                SubCategory("Sub_Category", "AuthDept");
-
-                                            </script>
-                                            <tr>
-                                                <th>Nature of Complaint
-                                                <td> <input type="text" class="form-control" name="complaintNature" id="Nature" placeholder="Nature Of Complaint" value="" required></td>
+                                                <th>Priority of Complaint
+                                                <td> <select class="form-control" id="complaintPriority" name="complaintPriority" required>
+                                                        <option value="">Select Type</option>
+                                                        <option value="High">High</option>
+                                                        <option value="Medium" >Medium</option>
+                                                        <option value="Low" >Low</option>
+                                                    </select></td>
 
                                                 </th>
+                                            </tr>
+                                            <tr>
                                                 <th>Date of Complaint</th>
                                                 <td><input type="date" name="complaintDate" class="form-control" id="DateOfComp" value="{{ old('complaintDate') }}" required></td>
                                             </tr>
                                             
 
-                                            <tr>
-                                                    
-                                                <th>Ref. No</th>
-                                                <td>
-                                                    <p>Ex.- Doc. NO. ,Order No. ,Customer Id,etc.</p><input name="refNo" type="text" class="form-control" id="Refno" placeholder="Ref.No" value="" required>
-                                                </td>
-                                            </tr>
+                                        
 
-                                            <tr>
-                                                <th>Complaint Details</th>
-                                                <td><textarea rows="3" cols="40" name="complaintDetails" class="form-control" placeholder="Please Enter Complaint Details" required></textarea></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Document 1</th>
-                                                <td> <input type="file" class="form-control-file" id="Doc1" placeholder="Doc1" name="document1" accept="application/pdf,.doc,.docx,image/*"></td>
-                                                <th>Document 2</th>
-                                                <td> <input type="file" class="form-control-file" id="Doc2" placeholder="Doc2" name="document2" accept="application/pdf,.doc,.docx,image/*"></td>
-                                            </tr>
+                                            
+                                            
                                         </table>
                                         <br><br>
 
