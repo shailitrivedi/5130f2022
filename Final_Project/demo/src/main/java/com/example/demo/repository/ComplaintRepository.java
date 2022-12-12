@@ -16,4 +16,8 @@ public interface ComplaintRepository extends JpaRepository<Complaint, Integer> {
 
 	Complaint findById(int comId);
 
+	List<Complaint> findByStatus(String status);
+
+	int countByStatus(String status);
+
 }

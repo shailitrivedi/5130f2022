@@ -68,7 +68,7 @@
                 <div class="col-sm-12 col-md-6 col-lg-6" id="append">
                     <div class="card">
                         <div class="card-body">
-                        	<form action="/user/getComp" method="get">
+                        	<form action="/user/getComp" method="get" id="form">
 	                            <h4 class="card-title">Enter Complaint I'd</h4>
 	                            <div class="form-group">
 	                                <input id="complaint" type="text" name="id" class="form-control" placeholder="Complaint I'd">	                        
@@ -168,74 +168,34 @@
         <!-- End Container fluid  -->
         <!-- ============================================================== -->
 
-        <!-- Info Alert Modal -->
-        <div id="info-alert-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-body p-4">
-                        <div class="text-center">
-                            <i class="dripicons-information h1 text-info"></i>
-                            <h4 class="mt-2">Heads up!</h4>
-                            <p class="mt-3">You're sure to be proceed further for recomplaining.</p>
-                            <p>Once you recomplained you can't be able to recomplain again.</p>
-                            <button id="continueBtn" type="button" class="btn btn-info my-2" data-dismiss="">Continue</button>
-                        </div>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-
-
-        <!-- Danger Alert Modal -->
-        <div id="danger-alert-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content modal-filled bg-danger">
-                    <div class="modal-body p-4">
-                        <div class="text-center">
-                            <i class="dripicons-wrong h1"></i>
-                            <h4 class="mt-2">Are You Sure?</h4>
-                            <p class="mt-3">Please Provide Feedback for Our Services</p>
-                            <form id="form-close" action="" method="POST">
-                                @csrf
-                                @method('put')
-                                <input type="text" name="feedback" class="form-control" placeholder="Provide Your Feedback" required />
-                            </form>
-                            <button type="button" id="closeBtn" class="btn btn-light my-2" data-toggle="modal" data-dismiss="modal" data-target="#centermodal">Continue</button>
-
-                        </div>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-        <div class="modal fade" id="centermodal" tabindex="-1" role="dialog" aria-modal="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <img src="../public/assets/images/success.gif" width="450" height="350">
-
-            </div><!-- /.modal-dialog-->
-        </div>
+        
         <!-- ============================================================== -->
         <!--  Modal content for the above example -->
         <div class="modal fade" id="bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	                <div class="modal-dialog modal-lg">
-	                    <div class="modal-content">
-	                        <div class="modal-header">
-	                            <h4 class="modal-title" id="myLargeModalLabel">Logout</h4>
-	                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	                        </div>
-	                        <div class="modal-body">
-	
-	                        </div>
-	                        <div class="modal-footer">
-	                            <button type="button" class="btn btn-light" data-dismiss="modal"><i data-feather="x" class="feather-icon"></i> Close</button>
-	                            <a href="/" class="btn btn-primary"><i data-feather="log-out" class="feather-icon"></i> Logout</a>
-	
-	                        </div>
-	                    </div><!-- /.modal-content -->
-	                </div><!-- /.modal-dialog -->
-            	</div><!-- /.modal -->
-    		</div>
-        
-        <%@ include file="Footer.jsp" %>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myLargeModalLabel">Logout</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-dismiss="modal"><i data-feather="x" class="feather-icon"></i> Close</button>
+                        <a href="/" class="btn btn-primary"><i data-feather="log-out" class="feather-icon"></i> Logout</a>
+
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+       	</div><!-- /.modal -->
+        <%@ include file="Footer.jsp" %>
+        
+        <script>
+   			var msg = '<%= request.getAttribute("error-msg") %>';
+			if (msg != "null"){
+				$('#form').prepend('<div class="alert alert-danger">'+msg+'</div>')
+			}
+   		</script>
 </body>
 </html>

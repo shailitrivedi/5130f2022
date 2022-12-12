@@ -39,4 +39,80 @@ public class ComplaintServiceImpl implements ComplaintService {
 		Integer id = comId;
 		complaintRepository.deleteById(id);
 	}
+
+	@Override
+	public List<Complaint> getAllComplaints() {
+		return complaintRepository.findAll();
+	}
+
+	@Override
+	public List<Complaint> getAllPendingComplaints(String status) {
+		return complaintRepository.findByStatus(status);
+	}
+
+	@Override
+	public int getSolvedComplaints(int id) {
+		List<Complaint> li = complaintRepository.findByUserId(id);
+		int count = 0;
+		for (Complaint x : li) {
+			if (x.getStatus().equalsIgnoreCase("solved"))
+				count++;
+		}
+		return count;
+	}
+
+	@Override
+	public int getPendingComplaints(int id) {
+		List<Complaint> li = complaintRepository.findByUserId(id);
+		int count = 0;
+		for (Complaint x : li) {
+			if (x.getStatus().equalsIgnoreCase("pending"))
+				count++;
+		}
+		return count;
+	}
+
+	@Override
+	public int getSolvedComplaintsByDept(int deptid) {
+		List<Complaint> li = complaintRepository.findByDeptId(deptid);
+		int count = 0;
+		for (Complaint x : li) {
+			if (x.getStatus().equalsIgnoreCase("solved"))
+				count++;
+		}
+		return count;
+	}
+
+	@Override
+	public int getPendingComplaintsByDept(int deptid) {
+		List<Complaint> li = complaintRepository.findByDeptId(deptid);
+		int count = 0;
+		for (Complaint x : li) {
+			if (x.getStatus().equalsIgnoreCase("pending"))
+				count++;
+		}
+		return count;
+	}
+
+	@Override
+	public int getAllSolvedComplaints() {
+		List<Complaint> li = complaintRepository.findAll();
+		int count = 0;
+		for (Complaint x : li) {
+			if (x.getStatus().equalsIgnoreCase("solved"))
+				count++;
+		}
+		return count;
+	}
+
+	@Override
+	public int getAllPendingComplaints() {
+		List<Complaint> li = complaintRepository.findAll();
+		int count = 0;
+		for (Complaint x : li) {
+			if (x.getStatus().equalsIgnoreCase("pending"))
+				count++;
+		}
+		return count;
+	}
 }

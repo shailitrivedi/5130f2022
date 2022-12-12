@@ -18,4 +18,6 @@ public interface DeptService {
 
 	Dept getDepartmentById(int deptId);
 
+	Dept updateDepartment(Dept dept);
+
 }

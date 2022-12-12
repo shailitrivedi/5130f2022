@@ -79,16 +79,16 @@
                                         </thead>
                                         <tbody>
 											<c:forEach var="com" items="${compalintListByDept}">
-                                            <tr>
-                                                <td>${com.id}</td>
-                                                <td>${com.type}</td>
-                                                <td>Hi</td>
-                                                <td>${com.status}</td>
-                                                <td>
-                                                	<a href="/dept/view?compid=${com.id}" class="btn waves-effect waves-light btn-rounded btn-dark viewBtn">View</a>
-                                                	<a href="/dept/resolve?compid=${com.id}" class="btn waves-effect waves-light btn-rounded btn-dark viewBtn">Resolve</a>
-                                                </td>
-                                            </tr>
+	                                            <tr>
+	                                                <td>${com.id}</td>
+	                                                <td>${com.type}</td>
+	                                                <td>Hi</td>
+	                                                <td>${com.status}</td>
+	                                                <td>
+	                                                	<a href="/dept/view?compid=${com.id}" class="btn waves-effect waves-light btn-rounded btn-dark viewBtn">View</a>
+	                                                	<a href="/dept/resolve?compid=${com.id}" class="btn waves-effect waves-light btn-rounded btn-dark viewBtn">Resolve</a>
+	                                                </td>
+	                                            </tr>
                                             </c:forEach>
                                         </tbody>
                                         <tfoot>

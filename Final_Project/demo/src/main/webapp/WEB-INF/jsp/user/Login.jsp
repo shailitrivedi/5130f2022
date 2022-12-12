@@ -42,12 +42,14 @@
                     </span>
                 </div>
                 <div class="ErrorMsg">
-                	<c:if test="${login-message != null}">
-                		<input type="text" style="" id="msg" value="${login-message}"/>
-                		<c:out value="${login-message}"/>
-                	</c:if>
+                	<%-- <c:if test="${login-message != null}"> --%>
+                		
+                		<%-- <input type="text" style="" id="msg" value="${login-message}"/>
+                		<span>${login-message}</span>
+                	</c:if> --%>
                 </div>
-                <form class="login100-form" action="/user/dashboard" method="post">
+                <form class="login100-form" action="/user/dashboard" method="post" id="form" >
+                
                     <div class="wrap-input100 validate-input m-b-26" data-validate="Email id is required">
                         <span class="label-input100">Email id<span style="color: #ff5e13;">&nbsp;*</span></span>
                         <input class="input100" type="email" name="userName" placeholder="Enter your Email id" value="" required>
@@ -106,5 +108,11 @@
         <script src="../public/programs/form/assets/vendor/countdowntime/countdowntime.js"></script>
         <script src="../public/programs/form/assets/js/main.js"></script>
         <script src="../public/programs/form/assets/js/jsFunction.js"></script>
+        <script>
+   			 var msg = '<%= request.getAttribute("login-message") %>';
+   				if (msg != "null"){
+   				$('#form').prepend('<div class="alert alert-danger">'+msg+'</div>')
+   				}
+   		</script>
 </body>
 </html>

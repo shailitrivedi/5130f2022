@@ -29,7 +29,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Complaints List</h4>
+                        <!-- <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Complaints List</h4>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
@@ -37,7 +37,7 @@
                                     <li class="breadcrumb-item text-muted active" aria-current="page">Complaints List</li>
                                 </ol>
                             </nav>
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>
@@ -57,7 +57,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Complaints List</h4>
+                                <h4 class="card-title">Department List</h4>
 
                                 <div class="table-responsive">
                                     <table id="default_order" class="table table-striped table-bordered display no-wrap" style="width:100%">
@@ -74,16 +74,17 @@
                                         
                                         <tbody>
                                             <c:forEach var="dept" items="${DepartmentList}">
-                                            <tr>
-                                                <td>${dept.deptName}</td>
-                                                <td>${dept.email}</td>
-                                                <td>${dept.firstName}</td>
-                                                <td>${dept.lastName}</td>
-                                                <td>${dept.mobileNo}</td>
-                                                <td>
-                                                	<button class="btn waves-effect waves-light btn-rounded btn-dark viewBtn" data-toggle="modal" id="viewBtn1" data-target="#full-width-modal">View</button>
-                                                </td>
-                                            </tr>
+	                                            <tr>
+	                                                <td>${dept.deptName}</td>
+	                                                <td>${dept.email}</td>
+	                                                <td>${dept.firstName}</td>
+	                                                <td>${dept.lastName}</td>
+	                                                <td>${dept.mobileNo}</td>
+	                                                <td>
+	                                                	<a href="/admin/viewDepartment?deptid=${dept.id}" class="btn waves-effect waves-light btn-rounded btn-dark viewBtn">View</a>
+	                                                	<a href="/admin/updateDepartment?deptid=${dept.id}" class="btn waves-effect waves-light btn-rounded btn-dark viewBtn">Update</a>
+	                                                </td>
+	                                            </tr>
                                             </c:forEach>
                                         </tbody>
                                         <tfoot>

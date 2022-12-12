@@ -47,10 +47,13 @@
                             <div class="d-flex d-lg-flex d-md-block align-items-center">
                                 <div>
                                     <div class="d-inline-flex align-items-center">
-                                        <h2 class="text-orange mb-1 font-weight-medium count"></h2>
-
+                                        <h2 class="text-orange mb-1 font-weight-medium count">
+                                        	<%= request.getAttribute("totalComp") %>
+                                        </h2>
                                     </div>
-                                    <h6 class="text-white font-weight-medium mb-0 w-100 text-truncate">Total Complaint</h6>
+                                    <h6 class="text-white font-weight-medium mb-0 w-100 text-truncate">
+                                    	Total Complaint
+                                    </h6>
                                 </div>
                                 <div class="ml-auto mt-md-3 mt-lg-0">
                                     <span class="opacity-7 text-white"><i data-feather="save"></i></span>
@@ -62,8 +65,11 @@
                         <div class="card-body">
                             <div class="d-flex d-lg-flex d-md-block align-items-center">
                                 <div>
-                                    <h2 class="text-green mb-1 w-100 text-truncate font-weight-medium count"></h2>
-                                    <h6 class="text-white font-weight-normal mb-0 w-100 text-truncate">Complaints Solved
+                                    <h2 class="text-green mb-1 w-100 text-truncate font-weight-medium count">
+                                    	<%= request.getAttribute("solvedComp") %>
+                                    </h2>
+                                    <h6 class="text-white font-weight-normal mb-0 w-100 text-truncate">
+                                    	Complaints Solved
                                     </h6>
                                 </div>
                                 <div class="ml-auto mt-md-3 mt-lg-0">
@@ -77,25 +83,16 @@
                             <div class="d-flex d-lg-flex d-md-block align-items-center">
                                 <div>
                                     <div class="d-inline-flex align-items-center">
-                                        <h2 class="text-primary mb-1 font-weight-medium count"></h2>
+                                        <h2 class="text-primary mb-1 font-weight-medium count">
+                                        	<%= request.getAttribute("pendingComp") %>
+                                        </h2>
                                     </div>
-                                    <h6 class="text-white font-weight-normal mb-0 w-100 text-truncate">Pending Complaints</h6>
+                                    <h6 class="text-white font-weight-normal mb-0 w-100 text-truncate">
+                                    	Pending Complaints
+                                    </h6>
                                 </div>
                                 <div class="ml-auto mt-md-3 mt-lg-0">
                                     <span class="opacity-7 text-white"><i data-feather="info"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card red">
-                        <div class="card-body">
-                            <div class="d-flex d-lg-flex d-md-block align-items-center">
-                                <div>
-                                    <h2 class="text-danger mb-1 font-weight-medium count"></h2>
-                                    <h6 class="text-white font-weight-normal mb-0 w-100 text-truncate">Closed Complaints</h6>
-                                </div>
-                                <div class="ml-auto mt-md-3 mt-lg-0">
-                                    <span class="opacity-7 text-white"><i data-feather="x-circle"></i></span>
                                 </div>
                             </div>
                         </div>

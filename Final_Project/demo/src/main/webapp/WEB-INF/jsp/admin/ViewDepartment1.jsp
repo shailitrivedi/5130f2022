@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.example.demo.model.Dept" %>  
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
-
+<html>
 <head>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +21,7 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+    <![endif]-->
 </head>
 <body>
 	<%@ include file="Header.jsp" %>
@@ -34,20 +32,18 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <!-- <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Complaints List</h4>
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Complaints List</h4>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
                                     <li class="breadcrumb-item"><a href="javascript:void(0);">Department Dashboard</a>
                                     </li>
-
                                 </ol>
-                                <ol></ol>
+                                <ol>
+                                </ol>
                             </nav>
-                        </div> -->
-
+                        </div>
                     </div>
-                    
                 </div>
             </div>
             <!-- ============================================================== -->
@@ -74,70 +70,52 @@
                                             <tr>
                                                 <th>Department Name</th>
                                                 <td>
-                                                	<input type="text" class="form-control" id="deptName" name="deptName" value="" required placeholder="Department Name" />
+                                                	<span>${getAADept.deptName}</span>
                                                	</td>
                                             </tr>
                                             <tr>
                                                 <th>Department Email</th>
                                                 <td> 
-                                                	<input type="email" class="form-control" id="email" name="email" value="" required placeholder="Department Email" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Department Password</th>
-                                                <td> 
-                                                	<input type="text" class="form-control" id="password" name="password" value="" required placeholder="Department Password" />
+                                               		<span>${getAADept.email}</span>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th>Person First Name</th>
                                                 <td>
-                                                	<input type="text" class="form-control" id="firstName" name="firstName" value="" required placeholder="First Name"/>
+                                                	<span>${getAADept.firstName}</span>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th>Person Last Name</th>
                                                 <td>
-                                                	<input type="text" class="form-control" id="lastName" name="lastName" value="" required placeholder="Last Name" />
+                                                	<span>${getAADept.lastName}</span>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th>Department Mobile no.</th>
                                                 <td>
-                                                	<input type="text" class="form-control" id="mobileNo" name="mobileNo" value="" required placeholder="Mobile Number" />
+                                                	<span>${getAADept.mobileNo}</span>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th>Department Location</th>
                                                 <td>
-                                                	<input type="text" class="form-control" id="location" name="location" value="" required placeholder="Department Location" />
+                                                	<span>${getAADept.location}</span>
                                                 </td>
                                             </tr>
-                                        
                                         </table>
-                                        <br><br>
-
-                                        <button class="btn btn-success"> <i data-feather="check-circle" class="feather-icon"></i>&nbsp;&nbsp;ADD Department</button>
                                     </form>
                                 </div>
-
                             </div> <!-- end card-body-->
                         </div> <!-- end card-->
                     </div> <!-- end col-->
                 </div>
                 <!-- end row -->
-
-
-
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
             </div>
-            
-         
+         </div>
     <%@ include file="Footer.jsp" %>
-
 </body>
-
 </html>
-      

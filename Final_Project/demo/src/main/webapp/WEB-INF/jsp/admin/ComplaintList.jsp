@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -35,7 +36,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Complaints List</h4>
+                        <!-- <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Complaints List</h4>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
@@ -43,7 +44,7 @@
                                     <li class="breadcrumb-item text-muted active" aria-current="page">Complaints List</li>
                                 </ol>
                             </nav>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -71,22 +72,23 @@
                                             <tr>
                                                 <th>Complaint I'd</th>
                                                 <th>Complaint Type</th>
-                                                <th>Complaint Date</th>
+                                                <th>Complaint Priority</th>
                                                 <th>Complaint Status</th>
                                                 <th>View Details</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-
+											<c:forEach var="com" items="${AllComplaints}">
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td><button type="button" class="btn waves-effect waves-light btn-rounded btn-dark viewBtn" data-toggle="modal" data-target="#full-width-modal" data-id={{ $item-></button>
+                                                <td>${com.id}</td>
+                                                <td>${com.type}</td>
+                                                <td>${com.nature}</td>
+                                                <td>${com.status}</td>
+                                                <td>
+                                                <a href="/admin/ViewFullComplaint?id=${com.id}" class="btn waves-effect waves-light btn-rounded btn-dark viewBtn">View</a>
                                                 </td>
                                             </tr>
-                                            
+                                            </c:forEach>
                                         </tbody>
                                         <tfoot>
                                             <tr>

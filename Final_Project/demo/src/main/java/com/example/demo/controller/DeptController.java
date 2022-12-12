@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,6 +56,14 @@ public class DeptController {
 				model.addAttribute("dept_firstname", dept.getFirstName());
 				model.addAttribute("dept_id", dept.getId());
 				model.addAttribute("dept_name", dept.getDeptName());
+
+				int solvedComp = complaintService.getSolvedComplaintsByDept(dept.getId());
+				int pendingComp = complaintService.getPendingComplaintsByDept(dept.getId());
+				logger.info(" == SOLVED: " + solvedComp + " == PENDING: " + pendingComp);
+				int totalComp = solvedComp + pendingComp;
+				model.addAttribute("totalComp", totalComp);
+				model.addAttribute("pendingComp", pendingComp);
+				model.addAttribute("solvedComp", solvedComp);
 				return "dept/Home";
 			} else {
 				model.addAttribute("login-message", "Sorry!! Username or Password is Incorrect!!");
@@ -66,7 +76,14 @@ public class DeptController {
 	}
 
 	@GetMapping(value = "/dashboard")
-	public String homePage1() {
+	public String homePage1(@ModelAttribute("dept_id") int id, Model model) {
+		int solvedComp = complaintService.getSolvedComplaintsByDept(id);
+		int pendingComp = complaintService.getPendingComplaintsByDept(id);
+		logger.info(" == SOLVED: " + solvedComp + " == PENDING: " + pendingComp);
+		int totalComp = solvedComp + pendingComp;
+		model.addAttribute("totalComp", totalComp);
+		model.addAttribute("pendingComp", pendingComp);
+		model.addAttribute("solvedComp", solvedComp);
 		return "dept/Home";
 	}
 
@@ -87,7 +104,12 @@ public class DeptController {
 
 	@GetMapping(value = "/ComplaintList")
 	public String ComplaintList(@RequestParam int deptId, Model m) {
-		List<Complaint> li = complaintService.getComplaintByDeptId(deptId);
+		List<Complaint> li1 = complaintService.getComplaintByDeptId(deptId);
+		List<Complaint> li = new ArrayList<Complaint>();
+		for (Complaint x : li1) {
+			if (x.getStatus().equalsIgnoreCase("pending"))
+				li.add(x);
+		}
 		m.addAttribute("compalintListByDept", li);
 		return "dept/ComplaintList";
 	}
@@ -141,6 +163,18 @@ public class DeptController {
 			new SecurityContextLogoutHandler().logout(request, response, auth);
 		}
 		return "redirect:/";
+	}
+
+	@GetMapping(value = "/viewRes")
+	public String viewRes(@RequestParam("compid") int compid, @RequestParam("deptid") int deptid, Model m) {
+		Complaint complaint = complaintService.getComplaintById(compid);
+		String deptName = deptService.getDepartmentById(deptid).getDeptName();
+
+		m.addAttribute("viewResComp", complaint);
+		m.addAttribute("viewDeptName", deptName);
+
+		return "dept/ViewResolvedComplaint";
+
 	}
 
 }

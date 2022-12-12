@@ -21,8 +21,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.Admin;
+import com.example.demo.model.Complaint;
 import com.example.demo.model.Dept;
 import com.example.demo.service.AdminService;
+import com.example.demo.service.ComplaintService;
+import com.example.demo.service.DeptService;
 
 @Controller
 @RequestMapping("/admin")
@@ -33,6 +36,12 @@ public class AdminController {
 
 	@Autowired
 	private AdminService adminService;
+
+	@Autowired
+	private ComplaintService complaintService;
+
+	@Autowired
+	private DeptService deptService;
 
 	@GetMapping(value = "/login")
 	public String loginPage() {
@@ -49,6 +58,14 @@ public class AdminController {
 				Admin admin = adminService.getAdminByEmail(email);
 				model.addAttribute("firstname", admin.getFirstName());
 				model.addAttribute("adminid", admin.getId());
+
+				int solvedComp = complaintService.getAllSolvedComplaints();
+				int pendingComp = complaintService.getAllPendingComplaints();
+				logger.info(" == SOLVED: " + solvedComp + " == PENDING: " + pendingComp);
+				int totalComp = solvedComp + pendingComp;
+				model.addAttribute("totalComp", totalComp);
+				model.addAttribute("pendingComp", pendingComp);
+				model.addAttribute("solvedComp", solvedComp);
 				return "admin/Home";
 			} else {
 				model.addAttribute("login-message", "Sorry!! Username or Password is Incorrect!!");
@@ -60,12 +77,22 @@ public class AdminController {
 	}
 
 	@GetMapping(value = "/dashboard")
-	public String homePage1() {
+	public String homePage1(Model model) {
+		int solvedComp = complaintService.getAllSolvedComplaints();
+		int pendingComp = complaintService.getAllPendingComplaints();
+		logger.info(" == SOLVED: " + solvedComp + " == PENDING: " + pendingComp);
+		int totalComp = solvedComp + pendingComp;
+		model.addAttribute("totalComp", totalComp);
+		model.addAttribute("pendingComp", pendingComp);
+		model.addAttribute("solvedComp", solvedComp);
 		return "admin/Home";
 	}
 
 	@GetMapping(value = "/ComplaintList")
-	public String ComplaintList() {
+	public String ComplaintList(Model m) {
+		List<Complaint> li = complaintService.getAllComplaints();
+		m.addAttribute("AllComplaints", li);
+		logger.info(" === List of Complaints === ");
 		return "admin/ComplaintList";
 	}
 
@@ -81,7 +108,13 @@ public class AdminController {
 	}
 
 	@GetMapping(value = "/AdminUpdateComplaint")
-	public String AdminUpdateComplaint() {
+	public String AdminUpdateComplaint(Model m) {
+		List<Complaint> li = complaintService.getAllPendingComplaints("PENDING");
+		logger.info(" === ALL PENDING REQUESTS === ");
+		m.addAttribute("AllPendingComplaint", li);
+		for (Complaint x : li) {
+			logger.info(" === Pending requests === " + x);
+		}
 		return "admin/AdminUpdateComplaint";
 	}
 
@@ -98,6 +131,40 @@ public class AdminController {
 		Dept dept1 = adminService.getDepartment(deptId);
 		mv.addObject("DepartmentObject", dept1);
 		return mv;
+	}
+
+	@GetMapping(value = "/viewDepartment")
+	public String viewDepartment(@RequestParam("deptid") int id, Model m) {
+		// int id = Integer.parseInt(deptid);
+		Dept dept = deptService.getDepartmentById(id);
+		m.addAttribute("getAADept", dept);
+		logger.info(" === DHARTI === ");
+		return "admin/ViewDepartment1";
+	}
+
+	@GetMapping(value = "/updateDepartment")
+	public String updateDept(@RequestParam("deptid") int id, Model m) {
+		Dept dept = deptService.getDepartmentById(id);
+		m.addAttribute("getBBDept", dept);
+		logger.info(" === DHARTI 11 === ");
+		return "admin/UpdateDepartment";
+	}
+
+	@PostMapping(value = "/updateDept")
+	public String updateDept(Dept dept, Model m) {
+		int id = dept.getId();
+		Dept dept11 = deptService.getDepartmentById(id);
+		dept11.setDeptName(dept11.getDeptName());
+		dept11.setEmail(dept11.getEmail());
+		dept11.setFirstName(dept11.getFirstName());
+		dept11.setLastName(dept11.getLastName());
+		dept11.setMobileNo(dept11.getMobileNo());
+		dept11.setLocation(dept11.getLocation());
+		dept11.setPassword(dept11.getPassword());
+
+		Dept dept12 = deptService.updateDepartment(dept);
+		logger.info(" === Updated Dept === " + dept12);
+		return "redirect:/admin/DepartmentList";
 	}
 
 	@PostMapping(value = "/registerDepartment")
@@ -117,6 +184,23 @@ public class AdminController {
 		model.addAttribute("save-status", "Sorry! Department already exists!!");
 		return "redirect:/admin/AddDepartment";
 
+	}
+
+	@GetMapping(value = "/ViewFullComplaint")
+	public String allComplaints(@RequestParam("id") int compId, Model m) {
+		Complaint com = complaintService.getComplaintById(compId);
+		String deptName = deptService.getDepartmentById(com.getDeptId()).getDeptName();
+		m.addAttribute("ComplaintFromAllA", com);
+		m.addAttribute("Deptname", deptName);
+		return "admin/ViewComplaint";
+	}
+
+	@GetMapping(value = "/blockComplaint")
+	public String blockComplaint(@RequestParam("id") int compId, Model m) {
+		Complaint com = complaintService.getComplaintById(compId);
+		com.setBlocked(true);
+		complaintService.registerComplaint(com);
+		return "redirect:/admin/AdminUpdateComplaint";
 	}
 
 	@GetMapping(value = "/logout")

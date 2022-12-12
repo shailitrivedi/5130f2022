@@ -52,4 +52,10 @@ public class DeptServiceImpl implements DeptService {
 		return deptRepository.findById(deptId);
 	}
 
+	@Override
+	public Dept updateDepartment(Dept dept) {
+		return deptRepository.save(dept);
+
+	}
+
 }

@@ -22,7 +22,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Complaints List</h4>
+                        <!-- <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Complaints List</h4>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
@@ -32,7 +32,7 @@
                                 </ol>
                                 <ol></ol>
                             </nav>
-                        </div>
+                        </div> -->
 
                     </div>
                     
@@ -54,8 +54,9 @@
                             <div class="d-flex d-lg-flex d-md-block align-items-center">
                                 <div>
                                     <div class="d-inline-flex align-items-center">
-                                        <h2 class="text-orange mb-1 font-weight-medium count"></h2>
-
+                                        <h2 class="text-orange mb-1 font-weight-medium count">
+                                        	<%= request.getAttribute("totalComp") %>
+                                        </h2>
                                     </div>
                                     <h6 class="text-white font-weight-medium mb-0 w-100 text-truncate">Total Complaint</h6>
                                 </div>
@@ -69,7 +70,10 @@
                         <div class="card-body">
                             <div class="d-flex d-lg-flex d-md-block align-items-center">
                                 <div>
-                                    <h2 class="text-green mb-1 w-100 text-truncate font-weight-medium count"></h2>
+                                    <h2 class="text-green mb-1 w-100 text-truncate font-weight-medium count">
+                                    	<%= request.getAttribute("solvedComp") %>
+                                    
+                                    </h2>
                                     <h6 class="text-white font-weight-normal mb-0 w-100 text-truncate">Complaints Solved
                                     </h6>
                                 </div>
@@ -84,25 +88,14 @@
                             <div class="d-flex d-lg-flex d-md-block align-items-center">
                                 <div>
                                     <div class="d-inline-flex align-items-center">
-                                        <h2 class="text-primary mb-1 font-weight-medium count"></h2>
+                                        <h2 class="text-primary mb-1 font-weight-medium count">
+                                        	<%= request.getAttribute("pendingComp") %>
+                                        </h2>
                                     </div>
                                     <h6 class="text-white font-weight-normal mb-0 w-100 text-truncate">Pending Complaints</h6>
                                 </div>
                                 <div class="ml-auto mt-md-3 mt-lg-0">
                                     <span class="opacity-7 text-white"><i data-feather="info"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card red">
-                        <div class="card-body">
-                            <div class="d-flex d-lg-flex d-md-block align-items-center">
-                                <div>
-                                    <h2 class="text-danger mb-1 font-weight-medium count"></h2>
-                                    <h6 class="text-white font-weight-normal mb-0 w-100 text-truncate">Closed Complaints</h6>
-                                </div>
-                                <div class="ml-auto mt-md-3 mt-lg-0">
-                                    <span class="opacity-7 text-white"><i data-feather="x-circle"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -207,6 +200,7 @@
             </div>
         </div>
        <div class="row">
+                    <!-- 
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
@@ -325,7 +319,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                
+                	 -->
+       </div>
     </div>
 		    <div class="modal fade" id="bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		        <div class="modal-dialog modal-lg">

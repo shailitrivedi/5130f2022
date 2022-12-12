@@ -39,7 +39,7 @@
                             <li><a href="/user/login">User</a></li>
                             <li><a href="/admin/login">Admin</a></li>
                             <li><a href="/dept/login">Department</a></li>
-                            <li><a href="#contact">Contact Us</a></li>
+                            <!-- <li><a href="#contact">Contact Us</a></li> -->
                         </ul>
                     </nav><!-- .nav-menu -->
                 </div>
@@ -67,7 +67,7 @@
                             <div class="container">
                                 <h2 class="animate__animated animate__fadeInDown">You Can Register A Complaint</h2>
                                 <p class="animate__animated animate__fadeInUp">Get started and Register your complaint here.<br>Click on Register button below.</p>
-                                <a href="/" class="btn-get-started scrollto animate__animated animate__fadeInUp">Register</a>
+                                <a href="user/login" class="btn-get-started scrollto animate__animated animate__fadeInUp">Register</a>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                             <div class="container">
                                 <h2 class="animate__animated animate__fadeInDown">You Can Track A Complaint</h2>
                                 <p class="animate__animated animate__fadeInUp">Start here to Track your complaint.<br> Click on Get Strated button below.</p>
-                                <a href="/" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                                <a href="user/login" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                             <div class="container">
                                 <h2 class="animate__animated animate__fadeInDown">You Can Re-Complaint</h2>
                                 <p class="animate__animated animate__fadeInUp">Not satisfied with the result of your complain?<br>Click on Get Started button below to recomplain.</p>
-                                <a href="/" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                                <a href="user/login" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                             <div class="container">
                                 <h2 class="animate__animated animate__fadeInDown">You Can Give Feedback </h2>
                                 <p class="animate__animated animate__fadeInUp">Please feel free to share the feedback here.<br>Click on the below given button.</p>
-                                <a href="/" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                                <a href="user/login" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
                             </div>
                         </div>
                     </div>
@@ -119,7 +119,7 @@
     </section><!-- End Intro Section -->
     <main id="main">
         <!-- ======= Contact Section ======= -->
-        <section id="contact" class="section-bg">
+        <!-- <section id="contact" class="section-bg">
             <div class="container" data-aos="fade-up">
                 <div class="section-header">
                     <h3>Contact Us</h3>
@@ -156,7 +156,10 @@
                 </div>
 
             </div>
-        </section><!-- End Contact Section -->
+        </section> -->
+        
+        
+        <!-- End Contact Section -->
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->

@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -20,7 +21,7 @@ public class ComplaintController {
 	Logger logger = LoggerFactory.getLogger(UserController.class);
 
 	@PostMapping(value = "/newComplaint") // produces = { MimeTypeUtils.APPLICATION_JSON_VALUE })
-	public String addComplaint(Complaint complaint)// , @PathParam("id") int userid) {
+	public String addComplaint(Complaint complaint, Model m)// , @PathParam("id") int userid) {
 	{
 		// logger.info("<==== Date ====>" + complaint.getComplaintDate());
 		// Complaint justSavedComplaint =
@@ -29,6 +30,7 @@ public class ComplaintController {
 		complaint.setStatus("PENDING");
 		logger.info(" === NEW COMPLAINT === " + complaint);
 		complaintService.registerComplaint(complaint);
+		m.addAttribute("save-comp-msg", "Complaint registered successfully!!!");
 		return "redirect:/user/NewComplaint";
 	}
 

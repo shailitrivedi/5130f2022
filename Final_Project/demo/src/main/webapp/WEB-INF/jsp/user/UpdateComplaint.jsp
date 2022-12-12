@@ -64,20 +64,22 @@
                                 <div class="table-responsive">
                                 	<%
 	                                	Complaint com = (Complaint) request.getAttribute("getCompalint"); 
+                                		int userId = (Integer) request.getAttribute("userid");
+                                		int comid = com.getId();
 										String deptname = (String) request.getAttribute("deptName");
                                 	%>
-                                    <form action="/complaint/newComplaint" method="POST" enctype="multipart/form-data">
+                                    <form action="/user/updateComplaint" method="Get" enctype="multipart/form-data" id="form">
                                         <table class="table table-bordered" width="80%" cellspacing="0">
                                             <tr>
                                                 <th>Complaint Type</th>
                                                 <td>
-                                                    <span><%= com.getType()%></span>
+                                                    <span><%=com.getType()%></span>
                                                 </td>
                                              </tr>
                                              <tr>
                                                 <th>Department Name</th>
                                                 <td>
-                                                	<span><%=deptname %></span>
+                                                	<span><%=deptname%></span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -93,18 +95,19 @@
                                             <tr>
                                                 <th>Complaint Details</th>
                                                 <td>
-	                                                <textarea rows="3" cols="40" name="detail" class="form-control" required>
-	                                                	<%=com.getDetail() %>
-	                                                </textarea>
-                                                    <input type="hidden" id="userid" value="${userid}" name="userId" style="display:none;" class="form-control">
+	                                                <textarea rows="3" cols="40" name="detail" class="form-control" required><%=com.getDetail() %></textarea>
+                                                    <input type="hidden" id="user_id" value="<%=userId%>" name="userId" style="display:none;" class="form-control"/>                         
+                                                    <input type="hidden" id="comp_id" value="<%=com.getId()%>" name="compId" style="display:none;" class="form-control"/>
                                                 </td>
                                             </tr>
-                                            <!-- <tr>
+                                            <!-- 
+                                            <tr>
                                                 <th>Date of Complaint</th>
                                                 <td>
                                                 	<input type="date" id="temp" name="complaintDate" placeholder="MM/dd/yyyy" value="" required>
                                                 </td>
-                                            </tr> -->
+                                            </tr> 
+                                            -->
                                         </table>
                                         <br/><br/>
                                         <button class="btn btn-success" >
@@ -130,10 +133,11 @@
             <%@ include file="Footer.jsp" %>
     </body>
     <script type="text/javascript">
-    	function vali(){
-    		var received_date = document.getElementById("temp").value;
-    		alert(temp);
-    	}
+    
+    var msg = '<%= request.getAttribute("") %>';
+	if (msg != "null"){
+		$('#form').prepend('<div class="alert alert-danger">'+msg+'</div>')
+	}
     </script>
 </html>
 

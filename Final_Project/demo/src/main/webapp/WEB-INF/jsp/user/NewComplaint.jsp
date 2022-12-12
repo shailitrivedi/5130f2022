@@ -65,7 +65,7 @@
                                 </div>
                                 <x-alert type="ValidationError" />
                                 <div class="table-responsive">
-                                    <form action="/complaint/newComplaint" method="POST" enctype="multipart/form-data">
+                                    <form action="/complaint/newComplaint" method="POST" enctype="multipart/form-data" id="form">
                                         <table class="table table-bordered" width="80%" cellspacing="0">
                                             <tr>
                                                 <th>Complaint Type</th>
@@ -101,8 +101,7 @@
                                             <tr>
                                                 <th>Complaint Details</th>
                                                 <td>
-	                                                <textarea rows="3" cols="40" name="detail" class="form-control" value="" placeholder="Please Enter Complaint Details" required>
-	                                                </textarea>
+	                                                <textarea rows="3" cols="40" name="detail" class="form-control" placeholder="Please Enter Complaint Details" required></textarea>
                                                     <input type="hidden" id="userid" value="${userid}" name="userId" style="display:none;" class="form-control">
                                                 </td>
                                             </tr>
@@ -132,15 +131,33 @@
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
-
+			<div class="modal fade" id="bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	                <div class="modal-dialog modal-lg">
+	                    <div class="modal-content">
+	                        <div class="modal-header">
+	                            <h4 class="modal-title" id="myLargeModalLabel">Logout</h4>
+	                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	                        </div>
+	                        <div class="modal-body">
+	
+	                        </div>
+	                        <div class="modal-footer">
+	                            <button type="button" class="btn btn-light" data-dismiss="modal"><i data-feather="x" class="feather-icon"></i> Close</button>
+	                            <a href="/" class="btn btn-primary"><i data-feather="log-out" class="feather-icon"></i> Logout</a>
+	
+	                        </div>
+	                    </div><!-- /.modal-content -->
+	                </div><!-- /.modal-dialog -->
+            	</div><!-- /.modal -->
+    		</div>
             <!-- All Jquery -->
             <%@ include file="Footer.jsp" %>
     </body>
     <script type="text/javascript">
-    	function vali(){
-    		var received_date = document.getElementById("temp").value;
-    		alert(temp);
-    	}
+    	var msg = '<%= request.getAttribute("save-comp-msg") %>';
+		if (msg != "null"){
+			$('#form').prepend('<div class="alert alert-danger">'+msg+'</div>')
+		}
     </script>
 </html>
 

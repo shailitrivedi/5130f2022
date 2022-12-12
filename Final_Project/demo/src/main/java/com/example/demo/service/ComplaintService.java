@@ -16,4 +16,20 @@ public interface ComplaintService {
 
 	void deleteComplaintById(int comId);
 
+	List<Complaint> getAllComplaints();
+
+	List<Complaint> getAllPendingComplaints(String nature);
+
+	public int getSolvedComplaints(int id);
+
+	public int getPendingComplaints(int id);
+
+	int getSolvedComplaintsByDept(int deptid);
+
+	int getPendingComplaintsByDept(int id);
+
+	int getAllSolvedComplaints();
+
+	int getAllPendingComplaints();
+
 }

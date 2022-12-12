@@ -5,10 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.example.demo.repository.AdminRepository;
+import com.example.demo.repository.ComplaintRepository;
 import com.example.demo.repository.UserRepository;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackageClasses = { UserRepository.class, AdminRepository.class })
+@EnableJpaRepositories(basePackageClasses = { UserRepository.class, AdminRepository.class, ComplaintRepository.class })
 public class DemoApplication {
 
 	public static void main(String[] args) {
